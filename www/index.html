@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<!-- The top of file index.htmls -->
+<html>
+<head>
+	<!-- Debut test google graphe -->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <!-- fin test google graphe -->
+    <meta charset="utf-8">
+    <link rel="icon" type="image/png" href="img/ico_camou.ico" />
+    <!--<link rel="icon" type="image/png" href="img/ico_uni.ico" />-->
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title>COME'N DO</title>
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+	 
+    <link rel="manifest" href="manifest.json">
+	 
+    <!-- un-comment this code to enable service worker-->
+    <script>
+      if ('serviceWorker' in navigator) {
+  navigator.serviceWorker
+           .register('/service-worker.js')
+           .then(function() { console.log("Service Worker Registered"); });
+}
+    </script> 
+ 
+    <link href="css/style.css" rel="stylesheet">
+	<link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    
+    <!--ion-gallery-->
+    <link href="lib/ion-gallery/dist/ion-gallery.css" rel="stylesheet">
+	
+    <!--debut imports-->
+    <script type="text/javascript" src="js/modernizr-2.8.3.min.js"></script> 	
+	<script type="text/javascript" src="js/moment.js"></script> 
+	<script type="text/javascript" src="js/moment-with-locales.js"></script> 
+	<!--<script src="/socket.io/socket.io.js"></script>-->
+	<!--<script type="text/javascript" src="http://cdn.socket.io/socket.io-1.0.3.js"></script>
+-->
+
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+    <script src="lib/angular-translate.js"></script>
+	<script src="lib/angular-momentjs.js"></script>
+    <script src="lib/ion-gallery/dist/ion-gallery.js"></script>
+    
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+
+	
+	<!--advanced carousel directive-->
+    <link rel="stylesheet" href="css/advanced-carousel.min.css">
+    <script src="js/advanced-carousel.min.js"></script>
+
+    <!-- google js -->
+    <script type="text/javascript" src="lib/angular-google-gapi-master/dist/angular-google-gapi.min.js"></script>
+    <!-- your app's js -->
+    <link rel="stylesheet" href="js/ng-table-master/dist/ng-table.css">
+	<script type="text/javascript" src="js/ng-table-master/dist/ng-table.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/controllers.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="js/socket.js"></script>
+    <script type="text/javascript" src="lib/app.langage.js"></script>
+	<!--utilisateurs
+    <script src="templates/users/controllers.js"></script>-->
+     
+    <!--Cahier Des Charges-->
+    <script src="templates/cnd/routes.js"></script>
+    <script src="templates/cnd/controllers.js"></script>
+    
+    <!-- code pour firebase -->
+    <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase-messaging.js"></script>    
+	<script>
+	  // Initialize Firebase
+	  var config = {
+	    apiKey: "AIzaSyBkHx0agcOH-JBY_hPm4hAx3GTZyY9viXU",
+	    authDomain: "shilocar-27f6f.firebaseapp.com",
+	    databaseURL: "https://shilocar-27f6f.firebaseio.com",
+	    projectId: "shilocar-27f6f",
+	    storageBucket: "shilocar-27f6f.appspot.com",
+	    messagingSenderId: "511326480480"
+	  };
+	  firebase.initializeApp(config);
+	</script>
+    <script src="https://cdn.firebase.com/libs/firebaseui/2.0.0/firebaseui.js"></script>
+	<link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.0.0/firebaseui.css" />
+    <!--<script type="text/javascript">
+      // FirebaseUI config.
+      var uiConfig = {
+        signInSuccessUrl: '<url-to-redirect-to-on-success>',
+        signInOptions: [
+          // Leave the lines as is for the providers you want to offer your users.
+          firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+          firebase.auth.FacebookAuthProvider.PROVIDER_ID,
+          firebase.auth.TwitterAuthProvider.PROVIDER_ID,
+          firebase.auth.GithubAuthProvider.PROVIDER_ID,
+          firebase.auth.EmailAuthProvider.PROVIDER_ID,
+          firebase.auth.PhoneAuthProvider.PROVIDER_ID
+        ],
+        // Terms of service url.
+        tosUrl: '<your-tos-url>'
+      };
+      // Initialize the FirebaseUI Widget using Firebase.
+      var ui = new firebaseui.auth.AuthUI(firebase.auth());
+      // The start method will wait until the DOM is loaded.
+      ui.start('#firebaseui-auth-container', uiConfig);
+    </script>-->
+  </head>
+  <body ng-app="starter">
+  <!--debut test sheet apiv4-->
+  <!--Add buttons to initiate auth sequence and sign out-->
+    <button id="authorize-button" style="display: none;">Authorize</button>
+    <button id="signout-button" style="display: none;">Sign Out</button>
+
+    <script type="text/javascript">
+      // Client ID and API key from the Developer Console
+      var CLIENT_ID = '859687445627-pb85oueqh57s2vpp16jlti67927jf63r.apps.googleusercontent.com';
+
+      // Array of API discovery doc URLs for APIs used by the quickstart
+      var DISCOVERY_DOCS = ["https://sheets.googleapis.com/$discovery/rest?version=v4"];
+
+      // Authorization scopes required by the API; multiple scopes can be
+      // included, separated by spaces.
+      var SCOPES = "https://www.googleapis.com/auth/spreadsheets.readonly";
+
+      var authorizeButton = document.getElementById('authorize-button');
+      var signoutButton = document.getElementById('signout-button');
+
+      /**
+       *  On load, called to load the auth2 library and API client library.
+       */
+      function handleClientLoad() {
+        gapi.load('client:auth2', initClient);
+      }
+
+      /**
+       *  Initializes the API client library and sets up sign-in state
+       *  listeners.
+       */
+      function initClient() {
+        gapi.client.init({
+          discoveryDocs: DISCOVERY_DOCS,
+          clientId: CLIENT_ID,
+          scope: SCOPES
+        }).then(function () {
+          // Listen for sign-in state changes.
+          gapi.auth2.getAuthInstance().isSignedIn.listen(updateSigninStatus);
+
+          // Handle the initial sign-in state.
+          updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
+          authorizeButton.onclick = handleAuthClick;
+          signoutButton.onclick = handleSignoutClick;
+        });
+      }
+
+      /**
+       *  Called when the signed in status changes, to update the UI
+       *  appropriately. After a sign-in, the API is called.
+       */
+      function updateSigninStatus(isSignedIn) {
+        if (isSignedIn) {
+          authorizeButton.style.display = 'none';
+          signoutButton.style.display = 'block';
+          //listMajors();
+        } else {
+          authorizeButton.style.display = 'block';
+          signoutButton.style.display = 'none';
+        }
+      }
+
+      /**
+       *  Sign in the user upon button click.
+       */
+      function handleAuthClick(event) {
+        gapi.auth2.getAuthInstance().signIn(); 
+      }
+
+      /**
+       *  Sign out the user upon button click.
+       */
+      function handleSignoutClick(event) {
+        gapi.auth2.getAuthInstance().signOut();
+      }
+    </script>
+    <script async defer src="https://apis.google.com/js/api.js"
+      onload="this.onload=function(){};handleClientLoad()"
+      onreadystatechange="if (this.readyState === 'complete') this.onload()">
+    </script>
+  <!--fin test sheet apiv4-->
+  <ion-nav-view></ion-nav-view>
+  </body>
+</html>

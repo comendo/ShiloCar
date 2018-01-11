@@ -1,0 +1,50 @@
+<ion-view view-title="Shilo Car Services">
+  <ion-content>
+       <!--<ion-item class="item-avatar" ng-controller="menuCtrl" ng-repeat="(sport,info) in site" href="#/app/{{sport}}/Ligues">
+	      <div class="row">
+		      <div class="col"><img ng-src="../img/{{info.Informations.image}}"></div>
+		      <div class="col"><h1>{{sport}}</h1></div>
+		     <div class="col">
+		      	<h2>Nombre d'Îles</h2>
+		      	<p>{{info.Informations.statistiques.nb_iles}}</p>
+		      </div>
+		      <div class="col">
+		      	<h2>Nombre de ligues</h2>
+		      	<p>{{info.Informations.statistiques.nb_ligues}}</p>
+		      </div>
+		      <div class="col">
+		      	<h2>Nombre de clubs</h2>
+		      	<p>{{info.Informations.statistiques.nb_clubs}}</p>
+		      </div>
+	      </div>
+      </ion-item>-->
+      <ion-list>
+      	<ion-item class="item-divider">
+      		Marques les plus demandées<!--{{cont[0]}}-->
+      	</ion-item>      
+      	<ion-slide-box>
+			<ion-slide ng-if="$index < 4 && $index > 0" ng-repeat="business in cont">
+				<div class="box blue home-hello box1">
+					<img src="https://firebasestorage.googleapis.com/v0/b/shilocar-27f6f.appspot.com/o/logos_voitures%2F{{business[0]}}.png?alt=media&token=0e23cffd-dca2-4fd0-aa1c-c9bdaeff5d10"/>
+					
+					<!--<img src="../templates/Médias/logo marque voiture/abarth.png">-->
+						<h2>{{business[0]}}</h2>
+				</div>
+			</ion-slide>
+	
+		  </ion-slide-box>
+		  <ion-item class="item-divider">
+      		Toutes les marques
+      	  </ion-item>      
+      	<ion-slide-box>
+			<ion-slide ng-if="$index < 20 && $index > 0" ng-repeat="business in cont">
+				<div class="box blue home-hello box1">
+					<img src="https://firebasestorage.googleapis.com/v0/b/shilocar-27f6f.appspot.com/o/logos_voitures%2F{{business[0]}}.png?alt=media&token=0e23cffd-dca2-4fd0-aa1c-c9bdaeff5d10"/>
+						<h3>{{business[0]}}</h3>
+				</div>
+			</ion-slide>
+	
+		  </ion-slide-box>
+		</ion-list>
+  </ion-content>
+</ion-view>

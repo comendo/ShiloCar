@@ -1,0 +1,25 @@
+<ion-view view-title="Ajouter/modifier {{categorie}}">
+  <ion-content>
+<div class="list" id="tout">
+  <form>
+  <label class="item item-input" ng-repeat="(k,v) in label">
+    <span class="input-label">{{v}} :</span>
+    <input ng-model="data[k]" type="text" placeholder="{{v}}" ng-change="hydrate(data)">
+  </label>
+  <label class="item item-input">
+    <div class="padding item item-input">
+		<button type="button" class="button button-block button-positive" id="submit" ng-click="submitForm(data)">Valider</button>
+	</div>
+  </label> 
+</form>
+</div>   
+  </ion-content> 
+<div class="tabs">
+  <a class="tab-item" href="#app/{{sport}}/Ligues/{{ligue}}/{{categorie}}">
+    Liste {{categorie}}
+  </a>
+  <a class="tab-item" href="#app/{{sport}}/Ligues/{{ligue}}/{{categorie}}/details/{{id}}">
+    D&eacute;tails {{categorie}}
+  </a>
+</div>
+</ion-view>

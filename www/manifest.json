@@ -1,0 +1,12 @@
+
+{
+  "name": "Come'N Do App",
+  "short_name": "CND App",
+  "start_url": "index.html",
+  "display": "standalone",
+  "icons": [{
+    "src": "img/logo_app.png",
+    "sizes": "144x144",
+    "type": "image/png"
+  }]
+}

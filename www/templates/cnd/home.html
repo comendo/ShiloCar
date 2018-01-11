@@ -1,0 +1,56 @@
+<ion-view view-title="Shilo Car Services">
+  <ion-content ng-controller="homeCtrl as vm">
+       <ion-list>
+       <section>
+            <h2>Inside a ng-repeat</h2>
+            <p class="pma" style="font-style: italic;">Info: check first 'only 1 carousel active at the same time' on the top of the page</p>
+            <a-carousel ng-repeat="item in vm.loopItems track by item.id"
+                        carousel-id="{{item.carouselId}}"
+                        carousel-options="::vm.carouselOptionsForLoop"
+                        array-provider="::item.arrayData"
+                        on-select="vm.onSelectCarousel(item)">
+            </a-carousel>
+        </section>
+
+                <section>
+                    <h2>Inside modal</h2>
+                    <button class="btn" ng-click="vm.openModal()">Open modal</button>
+                </section>
+       <div ng-repeat="(k, v) in cont">
+      	<ion-item class="item-divider" ng-if="k !== 'Demande de devis' && k !== 'Toutes les marques'">
+      		<div>{{k}}</div> 
+      	</ion-item>      
+      	<ion-slide-box>
+			<ion-slide ng-if="$index > 0" ng-repeat="(i, j) in cont[k]">
+				<div class="box blue home-hello box1">
+					<img src="https://firebasestorage.googleapis.com/v0/b/shilocar-27f6f.appspot.com/o/logos_voitures%2F{{j[0]}}.png?alt=media&token=0e23cffd-dca2-4fd0-aa1c-c9bdaeff5d10"/>
+						<h3>{{j[0]}}</h3>
+				</div>
+			</ion-slide>
+		  </ion-slide-box>
+		  <ion-item class="item-divider" ng-if="k === 'Demande de devis'" href="#/app/{{page}}/{{k}}">
+      		<div>{{k}}</div> 
+      	</ion-item>      
+      	<ion-item class="item-divider" ng-if="k === 'Toutes les marques'" href="#/app/{{page}}/{{k}}">
+      		<div>{{label[0]}}</div>
+      		
+      	</ion-item>
+      	</div> 
+      	<div id="carousel-6" class="carousel-wrapper">
+                <a-carousel
+                		<!--item-directive="carousel-text-item"--> 
+                        carousel-options="::vm.carouselOptions7"
+                        array-provider="::vm.carouselData7"
+                        on-select="vm.onSelectCarousel(item)">
+                </a-carousel>
+            </div>
+            <section>
+                <h2>Inside modal</h2>
+                <button class="btn" ng-click="vm.openModal()">Open modal</button>
+            </section>
+      	<!--<ion-item ng-if="k === 'Toutes les marques'">
+      		<ion-gallery ion-gallery-items="items"></ion-gallery>
+      	</ion-item>--> 
+		</ion-list>
+  </ion-content>
+</ion-view>         

@@ -1,0 +1,11 @@
+<ion-view view-title="{{sport}} - Régions">
+  <ion-content>
+    <ion-list>
+      <ion-item class="item-avatar" ng-repeat="(region,info) in regions" href="#/app/{{sport}}/Régions/{{region}}/home">
+	      <img src="../img/{{info['2-Ligue']['Informations'][1][18]}}">
+	      <h2>{{region}}</h2>
+	      <p>{{info['2-Ligue']['Informations'][1][1]}} ({{info['2-Ligue']['Informations'][1][0]}})</p>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,31 @@
+<ion-view view-title="{{page}} > {{sousPage}}">
+<ion-content>
+    <ion-list>
+	<div style="padding: 0px 15px; top: 20px; position: relative; z-index: 1;" class="table-container responsive-sm">
+		<div class="row">
+			<input class="noprint recherche col-50" type="search" ng-model="filtre1" placeholder="Rechercher par">
+			<input class="noprint recherche col-50" type="search" ng-model="filtre2" placeholder="et Rechercher par">
+		</div>
+	</div>
+</ion-item>
+<ion-gallery ion-gallery-items="items"></ion-gallery>
+<!--<ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="(categorie,contenu) in cont" type="item-text-wrap" href="#/app/">
+	<img src="../img/logo.ico">
+    <div class="row">
+    	<div class="col">
+    		<p class="col">{{contenu}}</p>			   
+    	</div>
+    </div>
+</ion-item> -->
+<form>
+  <label ng-if="data[k] != '' && data[k] != v" class="item item-input" ng-repeat="(k,v) in label">
+    <span class="input-label">{{v}} :</span>
+    <input ng-model="data[k]" type="text" disabled="disabled" placeholder="{{v}}" ng-change="hydrate(data)">
+  </label>
+
+</form>
+	      <!--<ng-include style src="testo"></ng-include>-->   	
+      <!--</ion-item>-->
+    </ion-list>
+  </ion-content>
+</ion-view>

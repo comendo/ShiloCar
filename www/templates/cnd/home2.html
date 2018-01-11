@@ -1,0 +1,24 @@
+<ion-view view-title="Come'N Do Sport">
+  <ion-content>
+    <ion-list>
+      <ion-item class="item-avatar" ng-repeat="(sport,info) in sports" href="#/app/{{sport}}/Ligues">
+	      <div class="row">
+		      <div class="col"><img ng-src="../img/{{info.Informations.image}}"></div>
+		      <div class="col"><h1>{{sport}}</h1></div>
+		      <!--<div class="col">
+		      	<h2>Nombre d'Îles</h2>
+		      	<p>{{info.Informations.statistiques.nb_iles}}</p>
+		      </div>
+		      <div class="col">
+		      	<h2>Nombre de ligues</h2>
+		      	<p>{{info.Informations.statistiques.nb_ligues}}</p>
+		      </div>
+		      <div class="col">
+		      	<h2>Nombre de clubs</h2>
+		      	<p>{{info.Informations.statistiques.nb_clubs}}</p>
+		      </div>-->
+	      </div>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

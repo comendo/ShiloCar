@@ -1,0 +1,17 @@
+<ion-item>
+	<div style="padding: 0px 15px; top: 20px; position: relative; z-index: 1;" class="table-container responsive-sm">
+		<div class="row">
+			<input class="noprint recherche col-50" type="search" ng-model="filtre1" placeholder="Rechercher par">
+			<input class="noprint recherche col-50" type="search" ng-model="filtre2" placeholder="et Rechercher par">
+		</div>
+	</div>
+</ion-item>
+<ion-item class="item-remove-animate item-avatar item-icon-right" ng-if="$index != 0" ng-repeat="(categorie,contenu) in cont" type="item-text-wrap" href="#/app/">
+	<img src="../img/logo.ico">
+    <div class="row">
+    	<div class="col">
+    		<h3>{{page}}{{contenu[2]}} {{contenu[3]}}</h3>
+	        <p class="col">{{contenu[4]}}</p>			   
+    	</div>
+    </div>
+</ion-item> 
